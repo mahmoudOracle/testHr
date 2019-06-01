@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="testCascadingLov.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
+                                          required="#{bindings.Id.hints.mandatory}"
+                                          columns="#{bindings.Id.hints.displayWidth}"
+                                          maximumLength="#{bindings.Id.hints.precision}"
+                                          shortDesc="#{bindings.Id.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.Id.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                                          required="#{bindings.Name.hints.mandatory}"
+                                          columns="#{bindings.Name.hints.displayWidth}"
+                                          maximumLength="#{bindings.Name.hints.precision}"
+                                          shortDesc="#{bindings.Name.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.Name.validator}"/>
+                            </af:inputText>
+                            <af:selectOneChoice value="#{bindings.Region.inputValue}" label="#{bindings.Region.label}"
+                                                required="#{bindings.Region.hints.mandatory}"
+                                                shortDesc="#{bindings.Region.hints.tooltip}" id="soc1"
+                                                autoSubmit="true" valueChangeListener="#{testCascaingLov.changeRegion}">
+                                <f:selectItems value="#{bindings.Region.items}" id="si1"/>
+                                <f:validator binding="#{bindings.Region.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{bindings.Country.inputValue}" label="#{bindings.Country.label}"
+                                                required="#{bindings.Country.hints.mandatory}"
+                                                shortDesc="#{bindings.Country.hints.tooltip}" id="soc2"
+                                                autoSubmit="true" partialTriggers="soc1">
+                                <f:selectItems value="#{bindings.Country.items}" id="si2"/>
+                                <f:validator binding="#{bindings.Country.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{bindings.City.inputValue}" label="#{bindings.City.label}"
+                                                required="#{bindings.City.hints.mandatory}"
+                                                shortDesc="#{bindings.City.hints.tooltip}" id="soc3" autoSubmit="true"
+                                                partialTriggers="soc2">
+                                <f:selectItems value="#{bindings.City.items}" id="si3"/>
+                                <f:validator binding="#{bindings.City.validator}"/>
+                            </af:selectOneChoice>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                    <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                               disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

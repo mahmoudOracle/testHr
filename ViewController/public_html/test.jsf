@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="test.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:panelGridLayout id="pgl1">
+        <af:gridRow height="200px" id="gr2">
+          <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+            <!-- Header -->
+            <af:table value="#{bindings.CcityStatic2.collectionModel}" var="row"
+                      rows="#{bindings.CcityStatic2.rangeSize}"
+                      emptyText="#{bindings.CcityStatic2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.CcityStatic2.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.CcityStatic2.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.CcityStatic2.rangeSize}"
+                      filterModel="#{bindings.CcityStatic2Query.queryDescriptor}" filterVisible="true"
+                      queryListener="#{bindings.CcityStatic2Query.processQuery}" varStatus="vs" id="t1">
+              <af:column sortProperty="#{bindings.CcityStatic2.hints.Id.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.CcityStatic2.hints.Id.label}" id="c1">
+                <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.CcityStatic2.hints.Id.label}"
+                              required="#{bindings.CcityStatic2.hints.Id.mandatory}"
+                              columns="#{bindings.CcityStatic2.hints.Id.displayWidth}"
+                              maximumLength="#{bindings.CcityStatic2.hints.Id.precision}"
+                              shortDesc="#{bindings.CcityStatic2.hints.Id.tooltip}" id="it5">
+                  <f:validator binding="#{row.bindings.Id.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.CcityStatic2.hints.Id.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CcityStatic2.hints.CityName.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.CcityStatic2.hints.CityName.label}" id="c2">
+                <af:inputText value="#{row.bindings.CityName.inputValue}"
+                              label="#{bindings.CcityStatic2.hints.CityName.label}"
+                              required="#{bindings.CcityStatic2.hints.CityName.mandatory}"
+                              columns="#{bindings.CcityStatic2.hints.CityName.displayWidth}"
+                              maximumLength="#{bindings.CcityStatic2.hints.CityName.precision}"
+                              shortDesc="#{bindings.CcityStatic2.hints.CityName.tooltip}" id="it6">
+                  <f:validator binding="#{row.bindings.CityName.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.CcityStatic2.hints.CountryId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.CcityStatic2.hints.CountryId.label}" id="c3">
+                <af:inputText value="#{row.bindings.CountryId.inputValue}"
+                              label="#{bindings.CcityStatic2.hints.CountryId.label}"
+                              required="#{bindings.CcityStatic2.hints.CountryId.mandatory}"
+                              columns="#{bindings.CcityStatic2.hints.CountryId.displayWidth}"
+                              maximumLength="#{bindings.CcityStatic2.hints.CountryId.precision}"
+                              shortDesc="#{bindings.CcityStatic2.hints.CountryId.tooltip}" id="it7">
+                  <f:validator binding="#{row.bindings.CountryId.validator}"/>
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.CcityStatic2.hints.CountryId.format}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:gridCell>
+        </af:gridRow>
+        <af:gridRow height="100%" id="gr1">
+          <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+            <af:panelSplitter id="ps1">
+              <f:facet name="first">
+                <af:panelFormLayout id="pfl2">
+                  <af:inputText value="#{bindings.Id1.inputValue}" label="#{bindings.Id1.hints.label}"
+                                required="#{bindings.Id1.hints.mandatory}" columns="#{bindings.Id1.hints.displayWidth}"
+                                maximumLength="#{bindings.Id1.hints.precision}"
+                                shortDesc="#{bindings.Id1.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.Id1.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Id1.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.Name1.inputValue}" label="#{bindings.Name1.hints.label}"
+                                required="#{bindings.Name1.hints.mandatory}"
+                                columns="#{bindings.Name1.hints.displayWidth}"
+                                maximumLength="#{bindings.Name1.hints.precision}"
+                                shortDesc="#{bindings.Name1.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.Name1.validator}"/>
+                  </af:inputText>
+                  <af:selectOneChoice value="#{bindings.Region1.inputValue}" label="#{bindings.Region1.label}"
+                                      required="#{bindings.Region1.hints.mandatory}"
+                                      shortDesc="#{bindings.Region1.hints.tooltip}" id="soc4">
+                    <f:selectItems value="#{bindings.Region1.items}" id="si4"/>
+                    <f:validator binding="#{bindings.Region1.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.Country1.inputValue}" label="#{bindings.Country1.label}"
+                                      required="#{bindings.Country1.hints.mandatory}"
+                                      shortDesc="#{bindings.Country1.hints.tooltip}" id="soc5">
+                    <f:selectItems value="#{bindings.Country1.items}" id="si5"/>
+                    <f:validator binding="#{bindings.Country1.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.City.inputValue}" label="#{bindings.City.label}"
+                                      required="#{bindings.City.hints.mandatory}"
+                                      shortDesc="#{bindings.City.hints.tooltip}" id="soc6">
+                    <f:selectItems value="#{bindings.City.items}" id="si6"/>
+                    <f:validator binding="#{bindings.City.validator}"/>
+                  </af:selectOneChoice>
+                  <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl3">
+                      <af:button actionListener="#{bindings.First1.execute}" text="First1"
+                                 disabled="#{!bindings.First1.enabled}" partialSubmit="true" id="b5"/>
+                      <af:button actionListener="#{bindings.Previous1.execute}" text="Previous1"
+                                 disabled="#{!bindings.Previous1.enabled}" partialSubmit="true" id="b6"/>
+                      <af:button actionListener="#{bindings.Next1.execute}" text="Next1"
+                                 disabled="#{!bindings.Next1.enabled}" partialSubmit="true" id="b7"/>
+                      <af:button actionListener="#{bindings.Last1.execute}" text="Last1"
+                                 disabled="#{!bindings.Last1.enabled}" partialSubmit="true" id="b8"/>
+                      <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                 disabled="#{!bindings.CreateInsert.enabled}" id="b9"/>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:panelFormLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelFormLayout id="pfl1">
+                  <af:inputText value="#{bindings.Id.inputValue}" label="#{bindings.Id.hints.label}"
+                                required="#{bindings.Id.hints.mandatory}" columns="#{bindings.Id.hints.displayWidth}"
+                                maximumLength="#{bindings.Id.hints.precision}" shortDesc="#{bindings.Id.hints.tooltip}"
+                                id="it1">
+                    <f:validator binding="#{bindings.Id.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.Name.inputValue}" label="#{bindings.Name.hints.label}"
+                                required="#{bindings.Name.hints.mandatory}"
+                                columns="#{bindings.Name.hints.displayWidth}"
+                                maximumLength="#{bindings.Name.hints.precision}"
+                                shortDesc="#{bindings.Name.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.Name.validator}"/>
+                  </af:inputText>
+                  <af:selectOneChoice value="#{bindings.Region.inputValue}" label="#{bindings.Region.label}"
+                                      required="#{bindings.Region.hints.mandatory}"
+                                      shortDesc="#{bindings.Region.hints.tooltip}" id="soc1">
+                    <f:selectItems value="#{bindings.Region.items}" id="si1"/>
+                    <f:validator binding="#{bindings.Region.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.Country.inputValue}" label="#{bindings.Country.label}"
+                                      required="#{bindings.Country.hints.mandatory}"
+                                      shortDesc="#{bindings.Country.hints.tooltip}" id="soc2">
+                    <f:selectItems value="#{bindings.Country.items}" id="si2"/>
+                    <f:validator binding="#{bindings.Country.validator}"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{bindings.Location.inputValue}" label="#{bindings.Location.label}"
+                                      required="#{bindings.Location.hints.mandatory}"
+                                      shortDesc="#{bindings.Location.hints.tooltip}" id="soc3">
+                    <f:selectItems value="#{bindings.Location.items}" id="si3"/>
+                    <f:validator binding="#{bindings.Location.validator}"/>
+                  </af:selectOneChoice>
+                  <f:facet name="footer">
+                    <af:panelGroupLayout layout="horizontal" id="pgl2">
+                      <af:button actionListener="#{bindings.First.execute}" text="First"
+                                 disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                      <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                 disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                      <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                 disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                      <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                 disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                      <af:button actionListener="#{bindings.CreateInsert1.execute}" text="CreateInsert1"
+                                 disabled="#{!bindings.CreateInsert1.enabled}" id="b10"/>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:panelFormLayout>
+              </f:facet>
+            </af:panelSplitter>
+          </af:gridCell>
+        </af:gridRow>
+      </af:panelGridLayout>
+    </af:form>
+  </af:document>
+</f:view>

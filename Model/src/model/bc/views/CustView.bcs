@@ -1,0 +1,19 @@
+//Groovy Scripts for model.bc.views.CustView
+
+package model.bc.views
+
+import oracle.jbo.script.annotation.AccessorParameterExpression;
+
+@AccessorParameterExpression(accessorName="LocationsView1", name="countryIdParam")
+def countryIdParam_LocationsView1_BindVariable_BoundParameter()
+{
+Country
+}
+
+
+@AccessorParameterExpression(accessorName="CountriesView1", name="RegiondIdParam")
+def RegiondIdParam_CountriesView1_BindVariable_BoundParameter()
+{
+Region
+}
+

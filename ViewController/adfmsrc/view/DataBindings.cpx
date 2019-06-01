@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.9.14" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/test.jsf" usageId="view_testPageDef"/>
+    <page path="/testInvokeAction.jsf" usageId="view_testInvokeActionPageDef"/>
+    <page path="/testCascadingLov.jsf" usageId="view_testCascadingLovPageDef"/>
+    <page path="/browseDepartment.jsf" usageId="view_browseDepartmentPageDef"/>
+    <page path="/withoutPageDef.jsf" usageId="view_withoutPageDefPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_testPageDef" path="view.pageDefs.testPageDef"/>
+    <page id="view_testInvokeActionPageDef" path="view.pageDefs.testInvokeActionPageDef"/>
+    <page id="view_testCascadingLovPageDef" path="view.pageDefs.testCascadingLovPageDef"/>
+    <page id="view_browseDepartmentPageDef" path="view.pageDefs.browseDepartmentPageDef"/>
+    <page id="view_withoutPageDefPageDef" path="view.pageDefs.withoutPageDefPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model.bc.views"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

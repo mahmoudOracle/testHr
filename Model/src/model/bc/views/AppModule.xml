@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="CustView1"
+    ViewObjectName="model.bc.views.CustView"/>
+  <ViewUsage
+    Name="CustomertView1"
+    ViewObjectName="model.bc.views.CustomertView"/>
+  <ViewUsage
+    Name="RegStatic1"
+    ViewObjectName="model.bc.views.RegStatic"/>
+  <ViewUsage
+    Name="CountryStatic1"
+    ViewObjectName="model.bc.views.CountryStatic"/>
+  <ViewUsage
+    Name="CountryStatic2"
+    ViewObjectName="model.bc.views.CountryStatic"/>
+  <ViewUsage
+    Name="CcityStatic1"
+    ViewObjectName="model.bc.views.CcityStatic"/>
+  <ViewUsage
+    Name="CcityStatic2"
+    ViewObjectName="model.bc.views.CcityStatic"/>
+  <ViewUsage
+    Name="RegStatic2"
+    ViewObjectName="model.bc.views.RegStatic"/>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="model.bc.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="model.bc.views.EmployeesView"/>
+  <ViewUsage
+    Name="payTypeStatic1"
+    ViewObjectName="model.bc.views.payTypeStatic"/>
+  <ViewLinkUsage
+    Name="StaticRegCountryVL1"
+    ViewLinkObjectName="model.bc.viewLinks.StaticRegCountryVL"
+    SrcViewUsageName="model.bc.views.AppModule.RegStatic1"
+    DstViewUsageName="model.bc.views.AppModule.CountryStatic1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="StaticCountryCityVL1"
+    ViewLinkObjectName="model.bc.viewLinks.StaticCountryCityVL"
+    SrcViewUsageName="model.bc.views.AppModule.CountryStatic1"
+    DstViewUsageName="model.bc.views.AppModule.CcityStatic1"
+    Reversed="false"/>
+</AppModule>

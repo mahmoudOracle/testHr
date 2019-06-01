@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Cust"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CUST"
+  AliasName="Cust"
+  BindingStyle="OracleName"
+  RowClass="model.shared.extensions.ExtEntityImpl"
+  DefClass="model.shared.extensions.ExtEntityDefImpl">
+  <Attribute
+    Name="Id"
+    IsNotNull="true"
+    ColumnName="ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CUST"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Name"
+    Precision="20"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Region"
+    ColumnName="REGION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CUST"/>
+  <Attribute
+    Name="Country"
+    Precision="2"
+    ColumnName="COUNTRY"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="CUST"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Location"
+    ColumnName="LOCATION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CUST"/>
+  <AccessorAttribute
+    Name="Countries"
+    Association="model.bc.associations.CustFk2Assoc"
+    AssociationEnd="model.bc.associations.CustFk2Assoc.Countries"
+    AssociationOtherEnd="model.bc.associations.CustFk2Assoc.Cust"
+    Type="model.shared.extensions.ExtEntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Locations"
+    Association="model.bc.associations.CustFk3Assoc"
+    AssociationEnd="model.bc.associations.CustFk3Assoc.Locations"
+    AssociationOtherEnd="model.bc.associations.CustFk3Assoc.Cust"
+    Type="model.shared.extensions.ExtEntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Regions"
+    Association="model.bc.associations.CustFk1Assoc"
+    AssociationEnd="model.bc.associations.CustFk1Assoc.Regions"
+    AssociationOtherEnd="model.bc.associations.CustFk1Assoc.Cust"
+    Type="model.shared.extensions.ExtEntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="CustPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CUST_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.bc.entities.Cust.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CustFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="REG_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUST_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.bc.entities.Cust.Region"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CustFk2">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="COUNTRY_C_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUST_FK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.bc.entities.Cust.Country"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CustFk3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="LOC_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUST_FK3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.bc.entities.Cust.Location"/>
+    </AttrArray>
+  </Key>
+</Entity>

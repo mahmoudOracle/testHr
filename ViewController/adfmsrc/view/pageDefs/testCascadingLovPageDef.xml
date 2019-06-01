@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="testCascadingLovPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomertView1" RangeSize="25" DataControl="AppModuleDataControl" id="CustomertView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CustomertView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomertView1Iterator" id="Name">
+      <AttrNames>
+        <Item Value="Name"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomertView1Iterator" StaticList="false" Uses="LOV_Region" id="Region" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomertView1Iterator" StaticList="false" Uses="LOV_Country" id="Country"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomertView1Iterator" StaticList="false" Uses="LOV_City" id="City" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action IterBinding="CustomertView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CustomertView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CustomertView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CustomertView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="CustomertView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>
